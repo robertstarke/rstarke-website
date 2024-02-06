@@ -1,0 +1,62 @@
+---
+import RepositoryCard from "./RepositoryCard.astro";
+
+interface Repository {
+  id: String;
+  name: String;
+  description: String;
+  url: String;
+  isPrivate: Boolean;
+  createdAt: String;
+  primaryLanguage: {
+    name: String;
+  };
+}
+
+const URL = import.meta.env.GITHUB_API_URL;
+const TOKEN = import.meta.env.GITHUB_API_TOKEN;
+const headers = new Headers();
+headers.append("Authorization", `bearer ${TOKEN}`);
+
+const response = await fetch(URL, {
+  method: "POST",
+  headers: headers,
+  body: JSON.stringify({
+    query: `query {
+  viewer {
+    repositories(first: 20) {
+    	nodes {
+        id
+        name
+        description
+        url
+				isPrivate
+        createdAt
+        primaryLanguage {
+          name
+        }
+      }
+    }
+  }
+}`,
+  }),
+});
+
+const {
+  data: {
+    viewer: {
+      repositories: { nodes: repositories },
+    },
+  },
+} = await response.json();
+---
+
+<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+  {
+    repositories
+      .filter((repository: Repository) => !repository.isPrivate)
+      .map((repository: Repository, index: number) => (
+        <RepositoryCard repository={repository} key={index} />
+      ))
+  }
+</ul>

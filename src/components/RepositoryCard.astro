@@ -1,0 +1,27 @@
+---
+const { repository } = Astro.props;
+
+const createdDate = new Date(repository.createdAt);
+const formattedCreatedDate = createdDate.toLocaleString("en-US", {
+  month: "short",
+  year: "numeric",
+});
+---
+
+<a
+  class="block flex flex-col bg-neutral-700 ring-2 ring-offset-neutral-800 ring-neutral-400 text-neutral-200 rounded-lg transition-all duration-200 hover:ring-2 hover:ring-offset-2 hover:scale-110 hover:ring-green-700"
+  href={repository.url}
+  title=`Link to ${repository.name}`
+  target="_blank"
+>
+  <header class="px-4 py-2 flex-none bg-neutral-800 rounded-t-lg text-xl">
+    {repository.name}
+  </header>
+  <article class="px-4 py-2 grow">{repository.description}</article>
+  <footer
+    class="px-4 py-2 flex-none flex flex-row justify-between bg-neutral-800 rounded-b-lg text-sm text-right"
+  >
+    <div>{repository.primaryLanguage?.name}</div>
+    <div>{formattedCreatedDate}</div>
+  </footer>
+</a>
