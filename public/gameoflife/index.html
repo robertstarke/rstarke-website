@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Conway's Game Of Life</title>
+		<link href="normalize.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<section>
+			<div id="controls">
+				<input 
+					id="size"
+					name="size"
+					class="input size" 
+					type="number" 
+					value="8" 
+					min="3" 
+					max="64" 
+					step="1" 
+					placeholder="grid size (8 -> 8x8)"/>
+				<button onclick="gameController.startNewGame(size)" accesskey="n">
+					<span class="font">New</span>
+				</button>
+				<button onclick="gameController.startGameWithRandomSeed(size)" accesskey="r">
+					<span class="font">Random</span>
+				</button>
+				<button id="previous" class="secondary" onclick="gameController.previousStep()" accesskey="arrowLeft" disabled>
+					<span class="font">previous</span>
+				</button>
+				<button id="autoPlay" class="secondary" onclick="gameController.autoPlay()" accesskey="a">
+					<span class="font">Autoplay</span>
+				</button>
+				<button id="next" class="secondary" onclick="gameController.nextStep()" accesskey="arrowRight">
+					<span class="font">Next</span>
+				</button>
+			</div>
+			<div id="endOfGame" class="hide">End state has been reached!</div>
+			<div id="board" data-size="8"></div>
+		</section>
+		<footer>Conway's Game Of Life by Robert Starke</footer>
+		<script src="index.js"></script>
+	</body>
+</html>

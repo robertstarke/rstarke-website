@@ -1,27 +1,22 @@
 ---
-const { repository } = Astro.props;
-
-const createdDate = new Date(repository.createdAt);
-const formattedCreatedDate = createdDate.toLocaleString("en-US", {
-  month: "short",
-  year: "numeric",
-});
+const { project } = Astro.props;
 ---
 
 <a
   class="block flex flex-col bg-neutral-800 ring-2 ring-offset-neutral-900 ring-neutral-400 text-neutral-200 rounded-lg transition-all duration-200 hover:ring-2 hover:ring-offset-2 hover:scale-110 hover:ring-green-700"
-  href={repository.url}
-  title=`Link to ${repository.name}`
+  href={project.url}
+  title=`Link to ${project.name}`
   target="_blank"
 >
   <header class="px-4 py-2 flex-none bg-neutral-900 rounded-t-lg text-xl">
-    {repository.name}
+    {project.name}
   </header>
-  <article class="px-4 py-2 grow">{repository.description}</article>
+  <article class="px-4 py-2 grow">TODO screenshot</article>
   <footer
     class="px-4 py-2 flex-none flex flex-row justify-between bg-neutral-900 rounded-b-lg text-sm text-right"
   >
-    <div>{repository.primaryLanguage?.name}</div>
-    <div>{formattedCreatedDate}</div>
+    <div class="flex flex-row gap-2">
+      {project.frameworks.map((framework: String) => <span>{framework}</span>)}
+    </div>
   </footer>
 </a>

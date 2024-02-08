@@ -51,7 +51,9 @@ const {
 } = await response.json();
 ---
 
-<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+<ul
+  class="mb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8"
+>
   {
     repositories
       .filter((repository: Repository) => !repository.isPrivate)

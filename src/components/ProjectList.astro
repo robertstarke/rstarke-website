@@ -1,0 +1,41 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+
+interface project {
+  id: String;
+  name: String;
+  url: String;
+  frameworks: [String];
+}
+
+const projects = [
+  {
+    id: "gameoflife",
+    name: "John Conway's Game Of Life",
+    url: "/gameoflife/index.html",
+    frameworks: ["Vanilla JS", "Vanilla CSS", "HTML5"],
+  },
+  {
+    id: "gameoflife-elm",
+    name: "John Conway's Game Of Life implemented with ELM",
+    url: "/gameoflife-elm/index.html",
+    frameworks: ["ElmJS", "Vanilla CSS", "HTML5"],
+  },
+  {
+    id: "nvimcheatsheet",
+    name: "Cheatsheet for NeoVim with LazyVim",
+    url: "/nvimcheatsheet/index.html",
+    frameworks: ["NakedJSX", "Vanilla CSS"],
+  },
+];
+---
+
+<ul
+  class="mb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8"
+>
+  {
+    projects.map((project: Project, index: number) => (
+      <ProjectCard project={project} key={index} />
+    ))
+  }
+</ul>
