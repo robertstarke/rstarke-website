@@ -8,10 +8,12 @@ const { project } = Astro.props;
   title=`Link to ${project.name}`
   target="_blank"
 >
-  <header class="px-4 py-2 flex-none bg-neutral-900 rounded-t-lg text-xl">
+  <header class="px-4 py-2 grow bg-neutral-900 rounded-t-lg text-xl">
     {project.name}
   </header>
-  <article class="px-4 py-2 grow">TODO screenshot</article>
+  <article class="flex-none">
+    <img src=`/project-covers/${project.cover}.jpg` alt="" />
+  </article>
   <footer
     class="px-4 py-2 flex-none flex flex-row justify-between bg-neutral-900 rounded-b-lg text-sm text-right"
   >
