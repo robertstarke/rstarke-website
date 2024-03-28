@@ -1,0 +1,8 @@
+{
+  "id": "nvimcheatsheet",
+  "name": "Cheatsheet for NeoVim",
+  "url": "/nvimcheatsheet/index.html",
+  "frameworks": ["NakedJSX", "VanillaCSS"],
+  "cover": "nvimcheatsheet",
+  "order": 5
+}

@@ -1,0 +1,8 @@
+{
+  "id": "workout-svelte",
+  "name": "Workout App",
+  "url": "/workout/index.html",
+  "frameworks": ["Svelte", "TailwindCSS"],
+  "cover": "workout",
+  "order": 0
+}

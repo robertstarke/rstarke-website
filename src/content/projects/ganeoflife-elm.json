@@ -1,0 +1,8 @@
+{
+  "id": "gameoflife-elm",
+  "name": "John Conway's Game Of Life with ELM",
+  "url": "/gameoflife-elm/index.html",
+  "frameworks": ["ElmJS", "VanillaCSS", "HTML5"],
+  "cover": "gameoflife-elm",
+  "order": 3
+}

@@ -1,0 +1,8 @@
+{
+  "id": "media-center",
+  "name": "Media Center",
+  "url": "/media-center/index.html",
+  "frameworks": ["NakedJSX", "TailwindCSS"],
+  "cover": "media-center",
+  "order": 2
+}

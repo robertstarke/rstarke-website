@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import ProjectCard from "./ProjectCard.astro";
 
 interface Project {
@@ -7,53 +8,25 @@ interface Project {
   url: String;
   frameworks: String[];
   cover: String;
+  order: number;
 }
 
-const projects = [
-  {
-    id: "gameoflife",
-    name: "John Conway's Game Of Life",
-    url: "/gameoflife/index.html",
-    frameworks: ["VanillaJS", "VanillaCSS", "HTML5"],
-    cover: "gameoflife",
-  },
-  {
-    id: "gameoflife-elm",
-    name: "John Conway's Game Of Life implemented with ELM",
-    url: "/gameoflife-elm/index.html",
-    frameworks: ["ElmJS", "VanillaCSS", "HTML5"],
-    cover: "gameoflife-elm",
-  },
-  {
-    id: "nvimcheatsheet",
-    name: "Cheatsheet for NeoVim with LazyVim",
-    url: "/nvimcheatsheet/index.html",
-    frameworks: ["NakedJSX", "VanillaCSS"],
-    cover: "nvimcheatsheet",
-  },
-  {
-    id: "workout-svelte",
-    name: "Workout App implemented in Svelte",
-    url: "/workout/index.html",
-    frameworks: ["Svelte", "TailwindCSS"],
-    cover: "workout",
-  },
-  {
-    id: "movie-db",
-    name: "Movie explorer implemented in AstroJS",
-    url: "/movie-db/index.html",
-    frameworks: ["AstroJs", "AlpineJs", "FuseJs", "TailwindCSS"],
-    cover: "movie-db",
-  },
-];
+const projects = await getCollection("projects");
 ---
 
 <ul
   class="mb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8"
 >
   {
-    projects.map((project: Project, index: number) => (
-      <ProjectCard project={project} key={index} />
-    ))
+    projects
+      .sort(
+        (
+          { data: project1 }: { data: Project },
+          { data: project2 }: { data: Project },
+        ) => project1.order - project2.order,
+      )
+      .map(({ data: project }: { data: Project }, index: number) => (
+        <ProjectCard project={project} key={index} />
+      ))
   }
 </ul>

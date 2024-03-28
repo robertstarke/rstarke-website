@@ -1,0 +1,8 @@
+{
+  "id": "movie-db",
+  "name": "Movie Explorer",
+  "url": "/movie-db/index.html",
+  "frameworks": ["AstroJs", "AlpineJs", "FuseJs", "TailwindCSS"],
+  "cover": "movie-db",
+  "order": 1
+}

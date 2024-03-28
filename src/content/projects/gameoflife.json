@@ -1,0 +1,8 @@
+{
+  "id": "gameoflife",
+  "name": "John Conway's Game Of Life",
+  "url": "/gameoflife/index.html",
+  "frameworks": ["VanillaJS", "VanillaCSS", "HTML5"],
+  "cover": "gameoflife",
+  "order": 4
+}
