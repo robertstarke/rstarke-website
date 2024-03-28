@@ -9,12 +9,14 @@ const formattedCreatedDate = createdDate.toLocaleString("en-US", {
 ---
 
 <a
-  class="block flex flex-col bg-neutral-800 ring-2 ring-offset-neutral-900 ring-neutral-400 text-neutral-200 rounded-lg transition-all duration-200 hover:ring-2 hover:ring-offset-2 hover:scale-110 hover:ring-green-700"
+  class="flex flex-col bg-neutral-800 ring-2 ring-offset-neutral-900 ring-neutral-400 text-neutral-200 rounded-lg transition-all duration-200 hover:ring-offset-2 hover:scale-105 hover:ring-green-700"
   href={repository.url}
   title=`Link to ${repository.name}`
   target="_blank"
 >
-  <header class="px-4 py-2 flex-none bg-neutral-900 rounded-t-lg text-xl">
+  <header
+    class="px-4 py-2 flex-none bg-neutral-900 rounded-t-lg text-xl text-center"
+  >
     {repository.name}
   </header>
   <article class="px-4 py-2 grow">{repository.description}</article>
